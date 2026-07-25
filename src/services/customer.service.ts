@@ -16,3 +16,17 @@ export function findCustomerById(id: number) {
 
     return customer
 }
+
+export function insertCustomer(name:string) {
+    const id = customers[customers.length -1].id
+
+    const customer: Customer = {
+        id: id + 1,
+        name,
+        status: true
+    }
+
+    customers.push(customer)
+
+    return customer
+}

@@ -4,7 +4,8 @@ import * as CustomerController from "../controllers/customer.controller.ts";
 const router = Router()
 
 router.get('/', CustomerController.getAllCustomers)
-router.get('/:id', CustomerController.getById)
+router.get('/:id', CustomerController.getCustomerById)
+router.post('/', CustomerController.creatCustomer)
 
 
 export default router
