@@ -6,6 +6,7 @@ const router = Router()
 router.get('/', CustomerController.getAllCustomers)
 router.get('/:id', CustomerController.getCustomerById)
 router.post('/', CustomerController.creatCustomer)
+router.put('/:id', CustomerController.updateCustomer)
 
 
 export default router
