@@ -49,3 +49,15 @@ export function modifyCustomer(
 
     return customer
 }
+
+export function removeCustomer(id:number) {
+    const index = customers.findIndex(
+        (customer) => customer.id === id
+    )
+
+    if (index === -1) {
+        throw new Error(`Cliente de id ${id} não encontrado.`)
+    }
+
+    customers.splice(index, 1)
+}

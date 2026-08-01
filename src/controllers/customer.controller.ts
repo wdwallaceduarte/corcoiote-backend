@@ -52,3 +52,11 @@ export function updateCustomer(
 
 
 }
+
+export function deleteCustomer(request: Request, response: Response) {
+    const id = Number(request.params.id)
+    
+    CustomerService.removeCustomer(id)
+
+    response.status(204).send()
+}
