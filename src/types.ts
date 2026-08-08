@@ -5,4 +5,9 @@ export type Customer = {
     status: boolean;
 }
 
+export type ValidationFieldError = {
+    field: string;
+    message: string;
+}
+
 

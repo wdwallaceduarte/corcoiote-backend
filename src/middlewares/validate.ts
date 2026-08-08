@@ -10,8 +10,13 @@ export default function validate(schema: ZodType) {
     ) => {
         const result = schema.safeParse(request.body);
 
-        if (!result.success) 
-            return next(new ValidationError(result.error.message))
+        if (!result.success) {
+            const fields = result.error.issues.map(issue => ({
+                field: issue.path.join(),
+                message: issue.message
+            }))
+            return next(new ValidationError('Dados inválidos.', fields))
+        }
        
         next()
     } 

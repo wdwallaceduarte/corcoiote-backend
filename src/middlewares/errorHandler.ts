@@ -9,11 +9,16 @@ export default function errorHandler(
     _next: NextFunction
 ) {
     if (
-        error instanceof NotFoundError || 
-        error instanceof ValidationError
-    ) {
-        response.status(error.statusCode).json({message: error.message})
+        error instanceof NotFoundError) {
+        response.status(error.statusCode).json({ message: error.message })
         return;
+    }
+
+    if (error instanceof ValidationError) {
+        response.status(error.statusCode).json({
+            message: error.message,
+            fields: error.fields
+        })
     }
 
     response.status(500).json({ message: 'Erro interno do servidor.' })
