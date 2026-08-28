@@ -4,7 +4,7 @@ datasource db {
 
 generator client {
   provider = "prisma-client"
-  output = "./src/generated/"
+  output = "./generated/"
 }
 
 model User {
@@ -15,4 +15,33 @@ model User {
   createdAt DateTime @default(now()) @map("created_at")
 
   @@map("users")
+}
+
+model Customer {
+  id        Int        @id                @default(autoincrement())
+  name      String
+  email     String     @unique
+  imageUrl  String?    @map("image_url")
+  createdAt DateTime   @default(now())    @map("created_at")
+  invoices  Invoice[]
+
+  @@map("customers")
+}
+
+enum InvoiceStatus {
+  PENDING
+  PAID
+}
+
+model Invoice {
+  id          Int         @id               @default(autoincrement())
+  amount      Int
+  status      InvoiceStatus
+  date        DateTime
+  customerId  Int         @map("customer_id")
+  createdAt   DateTime    @default(now())    @map("created_at")
+
+  customer    Customer    @relation(fields: [customerId], references: [id], onDelete: Cascade)
+
+  @@map("invoices")
 }
