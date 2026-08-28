@@ -1,4 +1,3 @@
-
 export type Customer = {
     id: number;
     name: string;
@@ -9,5 +8,3 @@ export type ValidationFieldError = {
     field: string;
     message: string;
 }
-
-

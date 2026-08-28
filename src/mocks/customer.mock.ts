@@ -1,17 +1,17 @@
-import type { Customer } from '../types.ts'
+import type { Customer } from "../types.ts";
 
-const customers: Customer [] = [{
+const customers: Customer[] = [{
     id: 1,
-    name: 'Wallace Duarte',
+    name: 'Alex Bessa',
     status: true
 }, {
     id: 2,
-    name: 'Daniele',
+    name: 'Valdiana Bessa',
     status: true
 }, {
     id: 3,
-    name: 'Beatriz',
+    name: 'Ana Bessa',
     status: false
-}]
+}];
 
-export default customers
+export default customers;
