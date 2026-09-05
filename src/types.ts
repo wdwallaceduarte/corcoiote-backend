@@ -6,6 +6,7 @@ export type Customer = {
     createdAt: Date;
 }
 
+
 export type ValidationFieldError = {
     field: string;
     message: string;
